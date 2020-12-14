@@ -1,2 +1,7 @@
-notes_raw = open("My_Notes.txt")
-print(notes_raw.read())
+note_file = open("My_Notes.txt")
+
+
+for line in note_file:
+    print(type(line))
+        
+note_file.close()

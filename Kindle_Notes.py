@@ -1,18 +1,30 @@
-note_file = open("My_Notes.txt")
+with open("My_Notes.txt") as note_file:
 
-paragraph = []
-extracted_notes = []
+#Convert file into a list:
+    note_list = []
+    for line in note_file:
+        note_list.append(line.rstrip())
 
-for line in note_file:
-    if not line.startswith("==="):
-        paragraph.append(line)
-    else:
-        for i in range(len(paragraph)-1,-1,-1):
-            if not paragraph[i].startswith("- Your"):
-                extracted_notes.append(paragraph[i])
-            else:
-                break
+#Extract book tiltes:
+    book_titles = set()
+    for i in range(len(note_list)):
+        if note_list[i].startswith("- Your"):
+            book_titles.add(note_list[i-1])
 
-print(extracted_notes)
+#Create separate note files:
+    for title in book_titles:
+        with open ("{}.txt".format(title), "w") as note_file:
+            for i in range(len(note_list)):
+                #pop for removing lines from the list
+                if note_list[i].startswith(title):
+                    while True:
+                        j = i+1
+                        if note_list[j].startswith("- Your"):
+                            continue
+                        elif note_list[j].startswith("==="):
+                            break
+                        else:
+                            note_file.write(j)
+                else:
+                    continue
 
-note_file.close()

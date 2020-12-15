@@ -1,4 +1,4 @@
-with open("My_Notes.txt") as note_file:
+with open("Notes.txt") as note_file:
 
 #Convert file into a list:
     note_list = []
@@ -13,18 +13,22 @@ with open("My_Notes.txt") as note_file:
 
 #Create separate note files:
     for title in book_titles:
-        with open ("{}.txt".format(title), "w") as note_file:
+        with open ("{}.txt".format(title), "w") as fhandle:
             for i in range(len(note_list)):
                 #pop for removing lines from the list
-                if note_list[i].startswith(title):
+                j = i
+                if note_list[i].startswith("{}".format(title)):
                     while True:
-                        j = i+1
+                        j += 1
                         if note_list[j].startswith("- Your"):
                             continue
                         elif note_list[j].startswith("==="):
+                            fhandle.write("\n")
+                            fhandle.write(60*"=")
                             break
                         else:
-                            note_file.write(j)
+                            fhandle.write(note_list[j])
+                            fhandle.write("\n")
                 else:
                     continue
 

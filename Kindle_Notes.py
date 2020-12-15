@@ -9,7 +9,8 @@ with open("Notes.txt") as note_file:
     book_titles = set()
     for i in range(len(note_list)):
         if note_list[i].startswith("- Your"):
-            book_titles.add(note_list[i-1])
+            book_title = note_list[i-1][:6]
+            book_titles.add(book_title)
 
 #Create separate note files:
     for title in book_titles:

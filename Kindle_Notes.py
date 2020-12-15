@@ -13,6 +13,8 @@ for line in note_file:
             else:
                 break
 
-print(extracted_notes)
+with open("Notes_Book_3.txt", "w") as extracted_file:
+    for line in extracted_notes:
+        extracted_file.write(line)
 
 note_file.close()

@@ -1,3 +1,12 @@
+import string
+
+def simplifier(words):
+    """Removes special characters."""    
+    for character in string.punctuation:
+        words = words.replace(character, "")
+    return(words)
+
+#Open note:
 with open("Notes.txt") as note_file:
 
 #Convert file into a list:
@@ -9,12 +18,12 @@ with open("Notes.txt") as note_file:
     book_titles = set()
     for i in range(len(note_list)):
         if note_list[i].startswith("- Your"):
-            book_title = note_list[i-1][:6]
+            book_title = note_list[i-1]
             book_titles.add(book_title)
 
 #Create separate note files:
     for title in book_titles:
-        with open ("{}.txt".format(title), "w") as fhandle:
+        with open ("{}.txt".format(simplifier(title)), "w") as fhandle:
             for i in range(len(note_list)):
                 #pop for removing lines from the list
                 j = i

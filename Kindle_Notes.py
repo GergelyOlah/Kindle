@@ -11,7 +11,7 @@ def simplifier(words):
 
 #Open note:
 notes = input("Name of the note file: \n")
-if len(notes) < 1: notes = "My clippings.txt" 
+if len(notes) < 1: notes = "My Clippings.txt" 
 
 with open(notes, errors="ignore") as note_file:
 

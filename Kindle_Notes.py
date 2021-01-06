@@ -1,5 +1,8 @@
 import string
+import timeit
+start = timeit.timeit()
 
+#Title simplifier:
 def simplifier(words):
     """Removes special characters."""    
     for character in string.punctuation:
@@ -7,7 +10,10 @@ def simplifier(words):
     return(words)
 
 #Open note:
-with open("Notes.txt") as note_file:
+notes = input("Name of the note file: \n")
+if len(notes) < 1: notes = "My clippings.txt" 
+
+with open(notes, errors="ignore") as note_file:
 
 #Convert file into a list:
     note_list = []
@@ -42,3 +48,5 @@ with open("Notes.txt") as note_file:
                 else:
                     continue
 
+end = timeit.timeit()
+print("Time elapsed: ", end - start)

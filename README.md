@@ -14,5 +14,5 @@ This application parses through the text file saved by Kindle, and purges the no
 ## Manual
 1. Copy the file containing the highlights (**_My Clippings.txt_**) from your Kindle to a folder.
 2. Copy the **_Kindle_Notes.py_** to the same foldder as above.
-3. Run the **_Kindle_Notes.py_** with Python 3.
+3. Run the **_Kindle_Notes.py_** with Python Version 3.0+.
 4. All the quotes and highlights are now separated by book titles and stored in standalone files.

@@ -1,5 +1,6 @@
 import string
 import timeit
+import os
 start = timeit.timeit()
 
 #Title simplifier:
@@ -10,7 +11,7 @@ def simplifier(words):
     return(words)
 
 #Open note:
-notes = input("Name of the note file: \n")
+notes = input("Type the name of the file containing your highlights if it is different from the default (My Clippings.txt). Otherwise hit ENTER. \n")
 if len(notes) < 1: notes = "My Clippings.txt" 
 
 with open(notes, errors="ignore") as note_file:
@@ -27,9 +28,19 @@ with open(notes, errors="ignore") as note_file:
             book_title = note_list[i-1]
             book_titles.add(book_title)
 
+#Create destination directory:
+    try:
+        os.makedirs("Highlights")
+    except OSError:
+        pass
+
 #Create separate note files:
     for title in book_titles:
-        with open ("{}.txt".format(simplifier(title)), "w") as fhandle:
+        
+        file_name = simplifier(title) + ".txt"
+        path = os.path.join(os.getcwd(), "Highlights", file_name)
+
+        with open (path, "w") as fhandle:
             for i in range(len(note_list)):
                 #pop for removing lines from the list
                 j = i
@@ -49,4 +60,6 @@ with open(notes, errors="ignore") as note_file:
                     continue
 
 end = timeit.timeit()
-print("Time elapsed: ", end - start)
+
+print("Your Kindle highlights are in the following folder: {}\n".format(os.path.join(os.getcwd(), "Highlights")))
+print("Time elapsed: {} s".format(round(end - start,5)))

@@ -4,7 +4,9 @@ I created this program because I love reading on my Kindle and over the years I 
 
 ![Raw Note](/Images/Kindle_Notes_Raw.PNG)
 
-This application parses through the text file saved by Kindle, and purges the notes from the metadata and line separators, then stores your highlights separately in text files named by the relevant book titles. This way revisiting your favourite quotes will be swift and easy. 
+This application parses through the text file saved by Kindle, and purges the notes from the metadata and line separators, then stores your highlights separately in text files named by the relevant book titles. This way revisiting your favourite quotes will be swift and easy:
+
+![Raw Note](/Images/Kindle_Notes_Purged.PNG)
 
 ## Manual
 1. Copy the file containing the highlights (**__My Clippings.txt__**) from your Kindle to a folder.

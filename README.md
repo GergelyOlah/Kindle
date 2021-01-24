@@ -11,10 +11,10 @@ This application parses through the text file saved by Kindle, and purges the no
 
 ![Raw Note](/Images/Kindle_Notes_Purged.PNG)
 
-## Manual
+## How to use
 1. Copy the file containing the highlights (**_My Clippings.txt_**) from your Kindle to a folder.
 2. Copy the **_Kindle_Notes.py_** to the same folder as above.
-3. Run the the below command with with Python Version 3.0+:
+3. Run the the below command with with _Python Version 3.0+_:
 ```
     python3 Kindle_Notes.py
 ``` 
